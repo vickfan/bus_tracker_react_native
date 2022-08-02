@@ -144,21 +144,21 @@ export default function App() {
           if(!stop['expand']){
             return (
               <TouchableOpacity key={i} style={styles.detailCard} onPress={()=>toggleETA({stop}, {i})}>
-                <Text style={{fontSize: 20}} >{stop['name']}</Text>
+                <Text style={{fontSize: 20, color: 'white'}} >{stop['name']}</Text>
               </TouchableOpacity>
               )
           } else {
             return (
               <TouchableOpacity key={i} style={styles.detailCard} onPress={()=>toggleETA({stop}, {i})}>
               <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '100%'}}>
-               <Text style={{fontSize: 20, marginBottom: 5}}>{stop['name']}</Text>
+               <Text style={{fontSize: 20, marginBottom: 5, color: 'white'}}>{stop['name']}</Text>
                <View>
                  {stop['eta'].map((eta, i)=>
                   <View style={{flexDirection: 'row', alignItems: 'center', justifyContent:'space-around'}} key={i}>
-                  <Text style={{fontSize: 18}}>
+                  <Text style={{fontSize: 18, color: 'white'}}>
                     {eta}
                   </Text>
-                  <Text>分鐘</Text>
+                  <Text style={{color: 'white'}}>分鐘</Text>
                   </View>
                   )}
                </View>
@@ -176,22 +176,23 @@ export default function App() {
         style={styles.inputBoxWrapper}
       >
       <TouchableOpacity style={styles.route} onPress={()=>getRouteStopData('inbound')}>
-        <Text style={{textAlign: 'center', fontSize: 20}}>
+        <Text style={{textAlign: 'center', fontSize: 20, color: 'white'}}>
           {inboundData}
         </Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.route} onPress={()=>getRouteStopData('outbound')}>
-        <Text style={{textAlign: 'center', fontSize: 20}}>
+        <Text style={{textAlign: 'center', fontSize: 20, color: 'white'}}>
           {outboundData}
         </Text>
       </TouchableOpacity>
 
        <TextInput
-      style = {styles.inputBox}
-      placeholder = "Type route here"
+        style = {styles.inputBox}
+        placeholder = "Type route here"
         onChangeText = {newRoute=>getRouteData(newRoute)}
         defaultValue =''
+        autoFocus={true}
         onSubmit = {()=>Keyboard.dismiss()}
         />
         </KeyboardAvoidingView>
@@ -207,7 +208,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: 'black',
     alignItems: 'center',
   },
   data: {
@@ -227,7 +228,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     alignSelf: 'stretch',
     textAlign: 'center',
-    fontSize: 20
+    fontSize: 20,
+    color: 'white'
   },
   detailContainerFlex: {
     alignItems: 'center',
@@ -238,26 +240,27 @@ const styles = StyleSheet.create({
 
   },
   detailCard: {
-    shadowColor: 'black',
+    shadowColor: 'white',
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
     shadowOpacity: 0.26,
     elevation: 8,
-    backgroundColor: 'white',
+    backgroundColor: 'black',
     padding: 20,
     borderRadius: 10,
     width: '95%',
-    marginVertical: 5
+    marginVertical: 5,
     },
   route: {
     alignSelf: 'stretch',
     marginTop: 5,
-    marginBottom: 5
+    marginBottom: 5,
   },
   inputBoxWrapper: {
     position: 'absolute',
     bottom: 60,
     width: '100%',
-    backgroundColor: '#fff'
+    backgroundColor: 'black',
+    color: 'white'
   }
 });
